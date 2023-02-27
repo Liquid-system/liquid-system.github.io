@@ -23,8 +23,10 @@ jobs:
           hugo-version: '0.110.0'
           extended: true
 
-      - name: Build
+      - name: HugoEnv
         run: HUGO_ENV=production hugo
+
+      - name: Build
         run: hugo --minify
 
       - name: Deploy
