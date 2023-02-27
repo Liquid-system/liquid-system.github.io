@@ -1,4 +1,4 @@
-baseURL = "https://liquid-system.github.io/"
+baseURL = "https://liquid-system.github.io"
 languageCode = "ja-JP"
 defaultContentLanguage = "ja"
 hasCJKLanguage = true
