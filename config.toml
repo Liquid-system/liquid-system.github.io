@@ -1,0 +1,6 @@
+baseURL = "http://example.org/"
+languageCode = "ja"
+defaultContentLanguage = "ja"
+hasCJKLanguage = true
+title = "時祷書"
+theme = "mini"
