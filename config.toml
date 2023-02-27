@@ -3,5 +3,5 @@ languageCode = "ja-JP"
 defaultContentLanguage = "ja"
 hasCJKLanguage = true
 title = "時祷書"
-theme = "mini"
+theme = "github.com/nodejh/hugo-theme-mini"
 canonifyurls = true
