@@ -1,5 +1,5 @@
-baseURL = "https://liquid-system.github.io"
-languageCode = "ja"
+baseURL = "https://liquid-system.github.io/"
+languageCode = "ja-JP"
 defaultContentLanguage = "ja"
 hasCJKLanguage = true
 title = "時祷書"
