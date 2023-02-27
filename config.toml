@@ -1,4 +1,4 @@
-baseURL = "http://example.org/"
+baseURL = "https://liquid-system.github.io/"
 languageCode = "ja"
 defaultContentLanguage = "ja"
 hasCJKLanguage = true
