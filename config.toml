@@ -1,6 +1,6 @@
 baseURL = "https://liquid-system.github.io"
 languageCode = "ja-JP"
-defaultContentLanguage = "ja"
+defaultContentLanguage = "en"
 hasCJKLanguage = true
 paginate = 3
 
@@ -8,6 +8,7 @@ title = "時祷書"
 theme = "github.com/nodejh/hugo-theme-mini"
 canonifyurls = true
 copyright = "Liquid_system"
+showToc = true
 
 [social]
 github = "https://github.com/Liquid-system"
