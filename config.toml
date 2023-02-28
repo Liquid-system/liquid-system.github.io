@@ -1,11 +1,24 @@
 baseURL = "https://liquid-system.github.io"
+title = "時祷書"
+theme = "kiss"
 languageCode = "ja-JP"
 defaultContentLanguage = "en"
 hasCJKLanguage = true
 Paginate = 5
-
-title = "時祷書"
-theme = "kiss"
 canonifyurls = true
 showToc = true
+codeCopy = true
+customCSS = ["css/custom.css"]
 copyright = "&copy;2022 Liquid-system | <a href=\"https://github.com/Liquid-system\">github</a> | <a href=\"https://misskey.io/@Liquid_system\">misskey.io</a>"
+[taxonomies]
+tag ="tags"
+
+[markup.goldmark.renderer]
+unsafe = true
+
+[params.info]
+homeTitle = "時祷書"
+
+[params.assets]
+customCSS = ["css/custom.css"]
+googleFonts = ["Noto Sans JP"]
