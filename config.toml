@@ -14,10 +14,12 @@ copyright = "&copy;2022 Liquid-system | <a href=\"https://github.com/Liquid-syst
 tag ="tags"
 
 [markup.goldmark.renderer]
+hardWraps = true
 unsafe = true
 
 [params.info]
 homeTitle = "時祷書"
+dateFormat = "01/02"
 
 [params.assets]
 customCSS = ["css/custom.css"]

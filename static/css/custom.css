@@ -1,4 +1,12 @@
 .content {
   font-family: 'Noto Sans JP', sans-serif;
-  font-size: 20px;
+  font-size: 17px;
+}
+.content h1,
+.content h2,
+.content h3,
+.content h4,
+.content h5,
+.content h6 {
+  color: #d11994;
 }
