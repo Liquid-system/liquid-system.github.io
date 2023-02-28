@@ -1,12 +1,19 @@
+@import url(http://fonts.googleapis.com/earlyaccess/notosansjp.css);
+
+.title {
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
 .content {
   font-family: 'Noto Sans JP', sans-serif;
   font-size: 17px;
 }
+
 .content h1,
 .content h2,
 .content h3,
 .content h4,
 .content h5,
 .content h6 {
-  color: #d11994;
+  color: rgb(211, 16, 162);
 }
