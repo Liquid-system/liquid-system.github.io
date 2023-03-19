@@ -54,4 +54,30 @@
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>;
 </span></span><span style=display:flex><span>}
-</span></span></code></pre></div><blockquote><p>上記のプログラムでは、vector<int>の要素の合計を計算するために、範囲for文で右辺値参照を使用しています。変数xが要素の右辺値参照となり、要素をコピーするのではなく、元の要素を直接参照することができます。そのため、範囲for文で要素を合計することができます。</p></blockquote><p>いやめちゃくちゃ凄いな。。。これ以上書くこともないしteratailみたいな質問サイトは淘汰されそうだなぁ</p></div></div></section><section class=section><div class="container has-text-centered"><p>&copy;2022 Liquid-system | <a href=https://github.com/Liquid-system>github</a> | <a href=https://misskey.io/@Liquid_system>misskey.io</a></p></div></section></body></html>
+</span></span></code></pre></div><blockquote><p>上記のプログラムでは、vector<int>の要素の合計を計算するために、範囲for文で右辺値参照を使用しています。変数xが要素の右辺値参照となり、要素をコピーするのではなく、元の要素を直接参照することができます。そのため、範囲for文で要素を合計することができます。</p></blockquote><p>次の質問<br>「範囲for文の要素名に&はつけるべきですか？もしつけるならばいくつ&を付ければいいですか？」<br>返答</p><blockquote><p>範囲for文の要素名に&を付けるかどうかは、処理の目的に応じて決定する必要があります。一般的に、要素を変更する必要がある場合は参照渡しを使用し、要素を変更しない場合は値渡しを使用することが推奨されます。</p></blockquote><blockquote><p>要素名につける&の数は、要素の型によって異なります。以下は、要素型による&の数の例です。</p></blockquote><blockquote><p>int&：要素への参照<br>const int&：要素への参照（読み取り専用）<br>int&&：要素への右辺値参照<br>const int&&：要素への右辺値参照（読み取り専用）<br>また、C++17からは、範囲for文で宣言された変数に対して、型推論を使用することもできます。つまり、autoキーワードを使用して、要素の型を自動的に推論させることができます。</p></blockquote><blockquote><p>以下は、要素名に&をつける例とautoを使用する例です。</p></blockquote><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=display:flex><span><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;iostream&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;vector&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>using</span> <span style=color:#66d9ef>namespace</span> std;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>() {
+</span></span><span style=display:flex><span>    vector<span style=color:#f92672>&lt;</span><span style=color:#66d9ef>int</span><span style=color:#f92672>&gt;</span> vec <span style=color:#f92672>=</span> {<span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>2</span>, <span style=color:#ae81ff>3</span>, <span style=color:#ae81ff>4</span>, <span style=color:#ae81ff>5</span>};
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 参照渡しを使用する例
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span><span style=color:#f92672>&amp;</span> x : vec) {
+</span></span><span style=display:flex><span>        x <span style=color:#f92672>*=</span> <span style=color:#ae81ff>2</span>;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 右辺値参照を使用する例
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span><span style=color:#f92672>&amp;&amp;</span> x : vec) {
+</span></span><span style=display:flex><span>        cout <span style=color:#f92672>&lt;&lt;</span> x <span style=color:#f92672>&lt;&lt;</span> <span style=color:#e6db74>&#34; &#34;</span>;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    cout <span style=color:#f92672>&lt;&lt;</span> endl;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 型推論を使用する例
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>auto</span> x : vec) {
+</span></span><span style=display:flex><span>        cout <span style=color:#f92672>&lt;&lt;</span> x <span style=color:#f92672>&lt;&lt;</span> <span style=color:#e6db74>&#34; &#34;</span>;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    cout <span style=color:#f92672>&lt;&lt;</span> endl;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><blockquote><p>上記のプログラムでは、範囲for文で要素名に&をつけたり、autoを使用したりしています。要素を変更する場合は参照渡しを使用し、要素を変更しない場合はautoを使用することができます。</p></blockquote><p>いやめちゃくちゃ凄いな。。。これ以上書くこともないしteratailみたいな質問サイトは淘汰されそうだなぁ</p></div></div></section><section class=section><div class="container has-text-centered"><p>&copy;2022 Liquid-system | <a href=https://github.com/Liquid-system>github</a> | <a href=https://misskey.io/@Liquid_system>misskey.io</a></p></div></section></body></html>
