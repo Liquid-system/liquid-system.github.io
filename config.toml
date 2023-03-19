@@ -1,4 +1,5 @@
 baseURL = "https://liquid-system.github.io"
+contentDir = "content/post"
 title = "時祷書"
 theme = "kiss"
 languageCode = "ja-JP"
