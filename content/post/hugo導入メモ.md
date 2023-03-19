@@ -1,7 +1,7 @@
 ---
 title: "hugo導入メモ"
 date: 2023-02-27T22:22:32+09:00
-tags: "tech"
+tags: ["tech"]
 ---
 
 このサイトは[hugo](https://github.com/gohugoio/hugo)と GitHub Pages を使って運用している。
