@@ -1,5 +1,5 @@
 +++
-title = "Lualine.nvimでステータスラインをカスタマイズ仕様！"
+title = "lualine.nvimでステータスラインをカスタマイズしよう！"
 date = 2023-03-17T22:33:33+09:00
 tags = ["tech", "neovim"]
 +++
