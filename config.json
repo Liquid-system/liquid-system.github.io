@@ -1,0 +1,16 @@
+{
+  "baseURL": "https://liquid-system.github.io",
+  "defaultContentLanguage": "en",
+  "languageCode": "ja-JP",
+  "theme": "paper",
+  "title": "時祷書",
+  "module": {
+    "mounts": [
+      {
+        "disableWatch": false,
+        "source": "content",
+        "target": "content"
+      }
+    ]
+  }
+}
