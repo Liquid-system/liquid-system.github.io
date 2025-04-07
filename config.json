@@ -12,5 +12,19 @@
         "target": "content"
       }
     ]
+  },
+  "params": {
+    "color" : "linen",
+    "disablePostNavigation" : false,
+    "appleTouchIcon" : "android-chrome-192x192.png",
+    "favicon" : "favicon.ico",
+    "github": "Liquid-system"
+  },
+  "markup": {
+    "goldmark": {
+      "renderer": {
+        "unsafe": true
+      }
+    }
   }
 }
