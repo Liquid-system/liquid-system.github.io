@@ -1,0 +1,102 @@
+<!doctype html><html class="not-ready lg:text-base" style=--bg:#faf8f1 lang=ja-jp dir=ltr><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>遅ればせのCSS入門-時祷書</title><meta name=theme-color><meta name=description content="今までだましだまし書いてきたCSSにも限界を見せてきたのでここいらで一つ、真面目にCSSに入門してみようと思う。
+という訳で現場のプロから学ぶ CSSコーディングバイブルの学習メモを書いておく
+CSSって? CSSとはカスケーディングスタイルシート(Cascading Style Sheet)の略。HTMLを装飾する役割を持つ。 CSS Working Groupのメンバーによって仕様が決められているらしい。
+基本文法 HTMLにCSSを適応させるには3種類の方法を持つ。
+HTMLのstyle属性に直接CSSを置く HTMLのstyleタグでCSSを挟む linkタグのhref属性にCSSファイルを読み込ませる　←主流 文法は単純(?)
+.text { background :#ccc; } 用語の説明 .text: セレクタ、装飾を適応したい箇所を指す background:: プロパティ、MDNでは
+CSS のプロパティは、関連付けられた値によりブラウザーがどのように要素を表示するかを定義する特性です。
+1 とある。
+#ccc;: 値、まあ説明は不要だろう
+キー概念 CSSを考える上で4つの概念が重要とある。
+カスケード 継承 優先度 詳細度 CSSで言うCascading、つまり上から下へ流れる滝のように、指定したセレクタが複数ある場合は下の行で上書きされる。 htmlタグの値は親から子へ受け継がれ、親要素で指定されている要素は継承プロパティと呼ばれる。そして、上書きされない限り子へ引き継がれる。 親子関係の例
+<h2 class=&#34;title&#34;>見出し<span>サブタイトル</span></h2> では
+.title(親) > span(子) となる CSSを書く上で重要なのがCSS優先度。まあどの値を優先するかを決めると考えればよいだろう。 具体的な優先度はこんな感じ 優先度高 style属性 IDセレクタ クラスセレクタ、属性セレクタ、擬似クラスセレクタ 要素セレクタ、疑似要素セレクタ 優先度低 詳細度が高いほど優先される。
+セレクタ IDセレクタ、クラスセレクタ、要素セレクタはよく見るね
+CSS設計 この辺りを読みたかった。CSSのコーディングスタイルには3つ代表的なものが存在する。
+OOCSS BEM SMACSS クラスにも代表的な指定方法が3つある。
+マルチクラス、装飾や機能ごとにクラスを分ける (Boostrapで使われる)
+ここがイイ！ 再利用性が高い ここがダメ！ styleの適応範囲が分かりにくい シングルクラス、使用する目的に合わせてクラスを作成"><meta name=author content="時祷書"><link rel="preload stylesheet" as=style href=https://liquid-system.github.io/main.min.css><link rel=preload as=image href=https://liquid-system.github.io/theme.png><script defer src=https://liquid-system.github.io/highlight.min.js onload=hljs.initHighlightingOnLoad()></script>
+<link rel=icon href=https://liquid-system.github.io/favicon.ico><link rel=apple-touch-icon href=https://liquid-system.github.io/apple-touch-icon.png><meta name=generator content="Hugo 0.110.0"><meta itemprop=name content="遅ればせのCSS入門"><meta itemprop=description content="今までだましだまし書いてきたCSSにも限界を見せてきたのでここいらで一つ、真面目にCSSに入門してみようと思う。
+という訳で現場のプロから学ぶ CSSコーディングバイブルの学習メモを書いておく
+CSSって? CSSとはカスケーディングスタイルシート(Cascading Style Sheet)の略。HTMLを装飾する役割を持つ。 CSS Working Groupのメンバーによって仕様が決められているらしい。
+基本文法 HTMLにCSSを適応させるには3種類の方法を持つ。
+HTMLのstyle属性に直接CSSを置く HTMLのstyleタグでCSSを挟む linkタグのhref属性にCSSファイルを読み込ませる　←主流 文法は単純(?)
+.text { background :#ccc; } 用語の説明 .text: セレクタ、装飾を適応したい箇所を指す background:: プロパティ、MDNでは
+CSS のプロパティは、関連付けられた値によりブラウザーがどのように要素を表示するかを定義する特性です。
+1 とある。
+#ccc;: 値、まあ説明は不要だろう
+キー概念 CSSを考える上で4つの概念が重要とある。
+カスケード 継承 優先度 詳細度 CSSで言うCascading、つまり上から下へ流れる滝のように、指定したセレクタが複数ある場合は下の行で上書きされる。 htmlタグの値は親から子へ受け継がれ、親要素で指定されている要素は継承プロパティと呼ばれる。そして、上書きされない限り子へ引き継がれる。 親子関係の例
+<h2 class=&#34;title&#34;>見出し<span>サブタイトル</span></h2> では
+.title(親) > span(子) となる CSSを書く上で重要なのがCSS優先度。まあどの値を優先するかを決めると考えればよいだろう。 具体的な優先度はこんな感じ 優先度高 style属性 IDセレクタ クラスセレクタ、属性セレクタ、擬似クラスセレクタ 要素セレクタ、疑似要素セレクタ 優先度低 詳細度が高いほど優先される。
+セレクタ IDセレクタ、クラスセレクタ、要素セレクタはよく見るね
+CSS設計 この辺りを読みたかった。CSSのコーディングスタイルには3つ代表的なものが存在する。
+OOCSS BEM SMACSS クラスにも代表的な指定方法が3つある。
+マルチクラス、装飾や機能ごとにクラスを分ける (Boostrapで使われる)
+ここがイイ！ 再利用性が高い ここがダメ！ styleの適応範囲が分かりにくい シングルクラス、使用する目的に合わせてクラスを作成"><meta itemprop=datePublished content="2023-03-09T01:54:19+09:00"><meta itemprop=dateModified content="2023-03-09T01:54:19+09:00"><meta itemprop=wordCount content="103"><meta itemprop=keywords content="tech,"><meta property="og:title" content="遅ればせのCSS入門"><meta property="og:description" content="今までだましだまし書いてきたCSSにも限界を見せてきたのでここいらで一つ、真面目にCSSに入門してみようと思う。
+という訳で現場のプロから学ぶ CSSコーディングバイブルの学習メモを書いておく
+CSSって? CSSとはカスケーディングスタイルシート(Cascading Style Sheet)の略。HTMLを装飾する役割を持つ。 CSS Working Groupのメンバーによって仕様が決められているらしい。
+基本文法 HTMLにCSSを適応させるには3種類の方法を持つ。
+HTMLのstyle属性に直接CSSを置く HTMLのstyleタグでCSSを挟む linkタグのhref属性にCSSファイルを読み込ませる　←主流 文法は単純(?)
+.text { background :#ccc; } 用語の説明 .text: セレクタ、装飾を適応したい箇所を指す background:: プロパティ、MDNでは
+CSS のプロパティは、関連付けられた値によりブラウザーがどのように要素を表示するかを定義する特性です。
+1 とある。
+#ccc;: 値、まあ説明は不要だろう
+キー概念 CSSを考える上で4つの概念が重要とある。
+カスケード 継承 優先度 詳細度 CSSで言うCascading、つまり上から下へ流れる滝のように、指定したセレクタが複数ある場合は下の行で上書きされる。 htmlタグの値は親から子へ受け継がれ、親要素で指定されている要素は継承プロパティと呼ばれる。そして、上書きされない限り子へ引き継がれる。 親子関係の例
+<h2 class=&#34;title&#34;>見出し<span>サブタイトル</span></h2> では
+.title(親) > span(子) となる CSSを書く上で重要なのがCSS優先度。まあどの値を優先するかを決めると考えればよいだろう。 具体的な優先度はこんな感じ 優先度高 style属性 IDセレクタ クラスセレクタ、属性セレクタ、擬似クラスセレクタ 要素セレクタ、疑似要素セレクタ 優先度低 詳細度が高いほど優先される。
+セレクタ IDセレクタ、クラスセレクタ、要素セレクタはよく見るね
+CSS設計 この辺りを読みたかった。CSSのコーディングスタイルには3つ代表的なものが存在する。
+OOCSS BEM SMACSS クラスにも代表的な指定方法が3つある。
+マルチクラス、装飾や機能ごとにクラスを分ける (Boostrapで使われる)
+ここがイイ！ 再利用性が高い ここがダメ！ styleの適応範囲が分かりにくい シングルクラス、使用する目的に合わせてクラスを作成"><meta property="og:type" content="article"><meta property="og:url" content="https://liquid-system.github.io/post/%E9%81%85%E3%82%8C%E3%81%B0%E3%81%9B%E3%81%AEcss%E5%85%A5%E9%96%80/"><meta property="article:section" content="post"><meta property="article:published_time" content="2023-03-09T01:54:19+09:00"><meta property="article:modified_time" content="2023-03-09T01:54:19+09:00"><meta name=twitter:card content="summary"><meta name=twitter:title content="遅ればせのCSS入門"><meta name=twitter:description content="今までだましだまし書いてきたCSSにも限界を見せてきたのでここいらで一つ、真面目にCSSに入門してみようと思う。
+という訳で現場のプロから学ぶ CSSコーディングバイブルの学習メモを書いておく
+CSSって? CSSとはカスケーディングスタイルシート(Cascading Style Sheet)の略。HTMLを装飾する役割を持つ。 CSS Working Groupのメンバーによって仕様が決められているらしい。
+基本文法 HTMLにCSSを適応させるには3種類の方法を持つ。
+HTMLのstyle属性に直接CSSを置く HTMLのstyleタグでCSSを挟む linkタグのhref属性にCSSファイルを読み込ませる　←主流 文法は単純(?)
+.text { background :#ccc; } 用語の説明 .text: セレクタ、装飾を適応したい箇所を指す background:: プロパティ、MDNでは
+CSS のプロパティは、関連付けられた値によりブラウザーがどのように要素を表示するかを定義する特性です。
+1 とある。
+#ccc;: 値、まあ説明は不要だろう
+キー概念 CSSを考える上で4つの概念が重要とある。
+カスケード 継承 優先度 詳細度 CSSで言うCascading、つまり上から下へ流れる滝のように、指定したセレクタが複数ある場合は下の行で上書きされる。 htmlタグの値は親から子へ受け継がれ、親要素で指定されている要素は継承プロパティと呼ばれる。そして、上書きされない限り子へ引き継がれる。 親子関係の例
+<h2 class=&#34;title&#34;>見出し<span>サブタイトル</span></h2> では
+.title(親) > span(子) となる CSSを書く上で重要なのがCSS優先度。まあどの値を優先するかを決めると考えればよいだろう。 具体的な優先度はこんな感じ 優先度高 style属性 IDセレクタ クラスセレクタ、属性セレクタ、擬似クラスセレクタ 要素セレクタ、疑似要素セレクタ 優先度低 詳細度が高いほど優先される。
+セレクタ IDセレクタ、クラスセレクタ、要素セレクタはよく見るね
+CSS設計 この辺りを読みたかった。CSSのコーディングスタイルには3つ代表的なものが存在する。
+OOCSS BEM SMACSS クラスにも代表的な指定方法が3つある。
+マルチクラス、装飾や機能ごとにクラスを分ける (Boostrapで使われる)
+ここがイイ！ 再利用性が高い ここがダメ！ styleの適応範囲が分かりにくい シングルクラス、使用する目的に合わせてクラスを作成"><link rel=canonical href=https://liquid-system.github.io/post/%E9%81%85%E3%82%8C%E3%81%B0%E3%81%9B%E3%81%AEcss%E5%85%A5%E9%96%80/></head><body class="bg-(--bg) text-black antialiased duration-200 ease-out [-webkit-tap-highlight-color:transparent] dark:text-white"><header class="mx-auto flex h-[4.5rem] max-w-(--w) px-8 whitespace-nowrap lg:justify-center"><div class="relative z-50 flex items-center ltr:mr-auto rtl:ml-auto"><a class="-translate-y-[1px] text-2xl font-medium" href=https://liquid-system.github.io>時祷書</a><div class="btn-dark text-[0px] ltr:ml-4 rtl:mr-4 h-6 w-6 shrink-0 cursor-pointer [background:url(./theme.png)_left_center/_auto_theme('spacing.6')_no-repeat] [transition:_background-position_0.4s_steps(5)] dark:[background-position:right]" role=button aria-label=Dark></div></div><div class="btn-menu relative z-50 flex h-[4.5rem] w-[5rem] shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden ltr:-mr-8 rtl:-ml-8" role=button aria-label=Menu></div><script>const htmlClass=document.documentElement.classList;setTimeout(()=>{htmlClass.remove("not-ready")},10);const btnMenu=document.querySelector(".btn-menu");btnMenu.addEventListener("click",()=>{htmlClass.toggle("open")});const metaTheme=document.querySelector('meta[name="theme-color"]'),lightBg="#faf8f1".replace(/"/g,""),setDark=e=>{metaTheme.setAttribute("content",e?"#000":lightBg),htmlClass[e?"add":"remove"]("dark"),localStorage.setItem("dark",e)},darkScheme=window.matchMedia("(prefers-color-scheme: dark)");if(htmlClass.contains("dark"))setDark(!0);else{const e=localStorage.getItem("dark");setDark(e?e==="true":darkScheme.matches)}darkScheme.addEventListener("change",e=>{setDark(e.matches)});const btnDark=document.querySelector(".btn-dark");btnDark.addEventListener("click",()=>{setDark(localStorage.getItem("dark")!=="true")})</script><div class="nav-wrapper fixed inset-x-0 top-full z-40 flex h-full flex-col justify-center bg-(--bg) pb-16 duration-200 select-none lg:static lg:h-auto lg:flex-row lg:bg-transparent! lg:pb-0 lg:transition-none"></div></header><main class="prose prose-neutral dark:prose-invert relative mx-auto min-h-[calc(100vh-9rem)] max-w-(--w) px-8 pt-14 pb-16"><article><header class=mb-14><h1 class="my-0! pb-2.5">遅ればせのCSS入門</h1><div class="text-xs antialiased opacity-60"><time>Mar 9, 2023</time></div></header><section><p>今までだましだまし書いてきたCSSにも限界を見せてきたのでここいらで一つ、真面目にCSSに入門してみようと思う。</p><p>という訳で<a href="https://book.mynavi.jp/ec/products/detail/id=123749">現場のプロから学ぶ CSSコーディングバイブル</a>の学習メモを書いておく</p><h3 id=cssって>CSSって?</h3><p>CSSとはカスケーディングスタイルシート(Cascading Style Sheet)の略。HTMLを装飾する役割を持つ。
+CSS Working Groupのメンバーによって仕様が決められているらしい。</p><h3 id=基本文法>基本文法</h3><p>HTMLにCSSを適応させるには3種類の方法を持つ。</p><ul><li>HTMLのstyle属性に直接CSSを置く</li><li>HTMLのstyleタグでCSSを挟む</li><li>linkタグのhref属性にCSSファイルを読み込ませる　←主流</li></ul><p>文法は単純(?)</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-css data-lang=css><span style=display:flex><span>.<span style=color:#a6e22e>text</span> {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>background</span> :<span style=color:#ae81ff>#ccc</span>;
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id=用語の説明>用語の説明</h3><p><code>.text</code>: セレクタ、装飾を適応したい箇所を指す
+<code>background:</code>: プロパティ、MDNでは</p><blockquote><p>CSS のプロパティは、関連付けられた値によりブラウザーがどのように要素を表示するかを定義する特性です。</p></blockquote><p><sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup> とある。</p><p><code>#ccc;</code>: 値、まあ説明は不要だろう</p><h3 id=キー概念>キー概念</h3><p>CSSを考える上で4つの概念が重要とある。</p><ul><li>カスケード</li><li>継承</li><li>優先度</li><li>詳細度</li></ul><p>CSSで言うCascading、つまり上から下へ流れる滝のように、指定したセレクタが複数ある場合は下の行で上書きされる。
+htmlタグの値は親から子へ受け継がれ、親要素で指定されている要素は継承プロパティと呼ばれる。そして、上書きされない限り子へ引き継がれる。
+親子関係の例</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-css data-lang=css><span style=display:flex><span><span style=color:#f92672>&lt;</span><span style=color:#f92672>h2</span> <span style=color:#f92672>class</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;title&#34;</span><span style=color:#f92672>&gt;</span><span style=color:#960050;background-color:#1e0010>見出し</span><span style=color:#f92672>&lt;</span><span style=color:#f92672>span</span><span style=color:#f92672>&gt;</span><span style=color:#960050;background-color:#1e0010>サブタイトル</span><span style=color:#f92672>&lt;/</span><span style=color:#f92672>span</span><span style=color:#f92672>&gt;&lt;/</span><span style=color:#f92672>h2</span><span style=color:#f92672>&gt;</span>
+</span></span></code></pre></div><p>では</p><pre tabindex=0><code>.title(親) &gt; span(子)
+</code></pre><p>となる
+CSSを書く上で重要なのがCSS優先度。まあどの値を優先するかを決めると考えればよいだろう。
+具体的な優先度はこんな感じ
+優先度高
+style属性
+IDセレクタ
+クラスセレクタ、属性セレクタ、擬似クラスセレクタ
+要素セレクタ、疑似要素セレクタ
+優先度低
+詳細度が高いほど優先される。</p><h3 id=セレクタ>セレクタ</h3><p>IDセレクタ、クラスセレクタ、要素セレクタはよく見るね</p><h3 id=css設計>CSS設計</h3><p>この辺りを読みたかった。CSSのコーディングスタイルには3つ代表的なものが存在する。</p><ul><li>OOCSS</li><li>BEM</li><li>SMACSS</li></ul><p>クラスにも代表的な指定方法が3つある。</p><p>マルチクラス、装飾や機能ごとにクラスを分ける
+(Boostrapで使われる)</p><ul><li>ここがイイ！
+再利用性が高い</li><li>ここがダメ！
+styleの適応範囲が分かりにくい</li></ul><p>シングルクラス、使用する目的に合わせてクラスを作成</p><ul><li>ここがイイ！
+styleの適応範囲が分かりやすい</li><li>ここがダメ！
+再利用性が低い</li></ul><p>ユーティリティクラス(汎用クラス)
+クラス名がCSSのプロパティを表しているクラス、(ちなみにこのブログのテーマであるkissはこのタイプを多用している。)</p><ul><li>OOCSS
+オブジェクト指向型CSSコーディングを指す。ストラクチャ(構造)とスキン(装飾)の分離、コンテナ(場所)とコンテンツ(パーツ)</li><li>BEM
+クラスの命名に厳格なルールある。複数人作業する場合はオススメ</li><li>SMACSS
+CSSを5つのカテゴリーに分ける</li><li>Base</li><li>Layout</li><li>Module</li><li>State</li><li>Theme
+それぞれのディレクトリ名を使う</li></ul><h3 id=cssの基本>CSSの基本</h3><p>CSSを学習上で必要な知識</p><ul><li>セレクタ</li><li>カスケードと継承、詳細度</li><li>ボックスモデル</li><li>マージンの相殺</li><li>デフォルトスタイルシート、リセットCSS
+CSSを書く上で最初にすること
+テンプレート、レイアウト、コンポーネント、エレメントの定義。</li></ul><p>とりあえずここまで。
+うーんCSSは奥深いなあ</p><div class=footnotes role=doc-endnotes><hr><ol><li id=fn:1><p><a href=https://developer.mozilla.org/ja/docs/Glossary/Property/CSS>https://developer.mozilla.org/ja/docs/Glossary/Property/CSS</a>&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li></ol></div></section><footer class="mt-12 flex flex-wrap"><a class="mb-1.5 rounded-lg bg-black/[3%] px-5 py-1 no-underline hover:bg-black/[6%] ltr:mr-1.5 rtl:ml-1.5 dark:bg-white/[8%] dark:hover:bg-white/[12%]" href=https://liquid-system.github.io/tags/tech>tech</a></footer><nav class="mt-24 flex overflow-hidden rounded-xl bg-black/[3%] text-lg leading-[1.2]! *:flex *:w-1/2 *:items-center *:p-5 *:font-medium *:no-underline dark:bg-white/[8%] [&>*:hover]:bg-black/[2%] dark:[&>*:hover]:bg-white/[3%]"><a class="ltr:pr-3 rtl:pl-3" href=https://liquid-system.github.io/post/lualine.nvim%E3%81%A7%E3%82%B9%E3%83%86%E3%83%BC%E3%82%BF%E3%82%B9%E3%83%A9%E3%82%A4%E3%83%B3%E3%82%92%E3%82%AB%E3%82%B9%E3%82%BF%E3%83%9E%E3%82%A4%E3%82%BA%E3%81%97%E3%82%88%E3%81%86/><span class="ltr:mr-1.5 rtl:ml-1.5">←</span><span>lualine.nvimでステータスラインをカスタマイズしよう！</span></a><a class="justify-end pl-3 ltr:ml-auto rtl:mr-auto" href=https://liquid-system.github.io/post/%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88/><span>日付フォーマットの変更できるようにした。</span><span class="ltr:ml-1.5 rtl:mr-1.5">→</span></a></nav></article></main><footer class="mx-auto flex h-[4.5rem] max-w-(--w) items-center px-8 text-xs tracking-wider uppercase opacity-60"><div class=mr-auto>&copy;2025<a class=link href=https://liquid-system.github.io>時祷書</a></div><a class="link mx-6" href=https://gohugo.io/ rel=noopener target=_blank>powered by hugo️️</a>️
+<a class=link href=https://github.com/nanxiaobei/hugo-paper rel=noopener target=_blank>hugo-paper</a></footer></body></html>
